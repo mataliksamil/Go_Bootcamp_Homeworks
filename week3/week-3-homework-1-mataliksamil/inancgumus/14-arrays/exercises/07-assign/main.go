@@ -1,0 +1,72 @@
+// Copyright © 2018 Inanc Gumus
+// Learn Go Programming Course
+// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
+//
+// For more tutorials  : https://learngoprogramming.com
+// In-person training  : https://www.linkedin.com/in/inancgumus/
+// Follow me on twitter: https://twitter.com/inancgumus
+
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+// ---------------------------------------------------------
+// EXERCISE: Assign the Arrays
+//
+//  1. Create an array named books
+//
+//  2. Add book titles to the array
+//
+//  3. Create two more copies of the array named: upper and lower
+//
+//  4. Change the book titles to uppercase in the upper array only
+//
+//  5. Change the book titles to lowercase in the lower array only
+//
+//  6. Print all the arrays
+//
+//  7. Observe that the arrays are not connected when they're copied.
+//
+// NOTE
+//  Check out the strings package, it has functions to convert letters to
+//  upper and lower cases.
+//
+// BONUS
+//  Invent your own arrays with different types other than string,
+//  and do some manipulations on them.
+//
+// EXPECTED OUTPUT
+//   Note: Don't worry about the book titles here, you can use any title.
+//
+//   books: ["Kafka's Revenge" "Stay Golden" "Everythingship"]
+//   upper: ["KAFKA'S REVENGE" "STAY GOLDEN" "EVERYTHINGSHIP"]
+//   lower: ["kafka's revenge" "stay golden" "everythingship"]
+// ---------------------------------------------------------
+
+func main() {
+	// books array declaration and assignment
+	books := [...]string{
+		"Kafka's Revenge",
+		"Stay Golden",
+		"Everythingship",
+	}
+	// copies of books
+	upper, lower := books, books
+	fmt.Println(books, upper, lower)
+
+	// Make it upper case every string characters in cells
+	for i, book := range upper {
+		upper[i] = strings.ToUpper(book)
+	}
+	// Make it lower case every string characters in cells
+	for i, book := range lower {
+		lower[i] = strings.ToLower(book)
+	}
+
+	fmt.Printf(" Books  : %#v\n", books)
+	fmt.Printf(" Uppers : %#v\n", upper)
+	fmt.Printf(" Lower  : %#v\n", lower)
+}
